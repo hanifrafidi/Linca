@@ -36,6 +36,7 @@ const UserProvider = (props) => {
 
 const loginUser = (user,response,setUser,navigate) => {        
     if(response.error != ''){
+        console.log(user)
         return console.log('error : ', response)
     }else{
         console.log(response)
