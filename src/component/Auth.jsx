@@ -54,7 +54,7 @@ export default function Auth() {
                                 )}
                             onSuccess={login}
                             onFailure={login}
-                            cookiePolicy={'https://linca.vercel.app'}
+                            cookiePolicy={'single_host_origin'}
                             tag='a'
                             />                                                    
                         <Button variant='outlined' color="info" size="small" fullWidth={true} sx={{mt: 1}}>
