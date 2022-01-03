@@ -8,13 +8,11 @@ import { ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
-  <ThemeProvider theme={Theme}>
-  <React.StrictMode>
+  <ThemeProvider theme={Theme}>  
     <CssBaseline />
     <BrowserRouter>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </BrowserRouter>  
   </ThemeProvider>,
   document.getElementById('root')
 )

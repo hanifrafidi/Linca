@@ -37,7 +37,7 @@ export default function Profile() {
                 <Grid item xs={3} sx={{display: 'flex', justifyContent : 'space-between'}}>
                     <Box sx={{ py: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '70vh'}}>
                         <img 
-                            src='https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+                            src={user.userData.imageUrl}
                             width="150"
                             height="150" 
                             alt="avatar-image"

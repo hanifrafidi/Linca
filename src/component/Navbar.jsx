@@ -23,9 +23,18 @@ import {UserContext} from '../state/UserContext'
 import {CartContext} from '../state/CartContext'
 import Alerts from './Alerts'
 
-export default function Navbar() {
-    const {Cart, alertType} = useContext(CartContext)
+// const useStyles = makeStyles((theme) =>({
+//   logo: {
+//     [theme.breakpoints.up('sm')]: {      
+//       width: '69px',
+//       height: '35px',
+//     },
+//   },
+// }));
 
+
+export default function Navbar(props) {
+    const {Cart, alertType} = useContext(CartContext)
     let item = 0;
     const totalItem = () => {
         for ( var i in Cart) {
@@ -35,35 +44,33 @@ export default function Navbar() {
     }
 
     const {user} = useContext(UserContext)
-
-    const location = useLocation();
+    const location = useLocation();    
 
     return (
-        <Box sx={{ flexGrow: 1, my: 4, display: location.pathname === '/Auth' ? 'none' : '' }}>
-          {console.log(user)} 
-          {console.log('user storage1 : ',localStorage.getItem("user") === null ? true : false)}
-          {console.log('user storage2 : ',localStorage.getItem("user") === '' ? true : false)}
-          {console.log('user storage3 : ',localStorage.getItem("user") === undefined ? true : false)}
-          {console.log('user :',localStorage.getItem('user'))}
-          {console.log(typeof localStorage.getItem("user"))}
+        <Box sx={{ flexGrow: 1, mt: {md: 4, xs: 1}, display: location.pathname === '/Auth' ? 'none' : '' }}>          
           <Alerts alertType={alertType} />
           <AppBar position="static"color="transparent" elevation={0}> 
             <Toolbar disableGutters={true} sx={{ display: 'flex', alignItems: 'center'}}>                            
                 <Box sx={{ flexGrow: 1 }}>             
                     <Links to='/'>
-                      <img src={Logo} width="150" height="60" alt="logo" />                                
+                      <Box component="img" src={Logo} 
+                        sx={{ 
+                            width:{ xs:69, md: 150},
+                            height: { xs: 35, md: 60}
+                        }}/>
                     </Links>
                 </Box>              
               <nav>                
-                  <IconButton size="large" aria-label="show 4 new mails" sx={{mx: 2}} component={Links} to='/Cart'>
-                    { Cart.length > 0 ? 
+                  <IconButton aria-label="show 4 new mails"  component={Links} to='/Cart'
+                    sx={{
+                      mx: 2,
+                      width: { xs: 16, md: 16},
+                      height: { xs: 16, md: 16},
+                    }}
+                  >                    
                     <Badge badgeContent={totalItem()} color="error">
                         <LocalMallIcon />
-                    </Badge>
-                     : 
-                     <LocalMallIcon />
-                     }
-                    
+                    </Badge>                                        
                 </IconButton>                
               </nav>
               { 

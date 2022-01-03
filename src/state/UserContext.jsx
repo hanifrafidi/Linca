@@ -12,10 +12,10 @@ export const UserContext = createContext({
 
 const UserProvider = (props) => {
     const [user, setUser] = useState({
-        // userData : localStorage.getItem("user") != null ? JSON.parse(localStorage.getItem("user")) : '',
-        // accessToken : localStorage.getItem("token") != null ? localStorage.getItem("token") : ''
-        userData : '',
-        accessToken : ''
+        userData : localStorage.getItem("user") != null ? JSON.parse(localStorage.getItem("user")) : '',
+        accessToken : localStorage.getItem("token") != null ? localStorage.getItem("token") : ''
+        // userData : '',
+        // accessToken : ''
     })    
     const navigate = useNavigate()
 

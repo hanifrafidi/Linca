@@ -60,13 +60,18 @@ export default function Home() {
     
     return (
         <div>            
-            <Grid container>
-                <Grid item xs={4}>                
-                    <Typography variant="h6" sx={{ mt: 10}}>
+            <Grid container sx={{ flexDirection: {xs: 'column', md: 'row'} }}>
+                <Grid item xs={4}>
+                    <Typography variant="h6" sx={{ mt: {md: 10, xs: 4}}}>
                         Genre
                     </Typography>
-                    <Box sx={{mt: 3, pr: 4}}>                        
-                        <MenuList autoFocusItem={true} disabledgutter="true">
+                    <Box sx={{mt: {md: 3, xs: 1}, pr: 4}}>                        
+                        <MenuList autoFocusItem={true} disabledgutter="true" 
+                        sx={{ 
+                            display: {md: 'block', xs: 'flex'}, 
+                            maxWidth: {md: 'none', xs: '100%'}, 
+                            overflow: {md: 'auto', xs: 'scroll'} 
+                        }}>
                             {
                                 genres.map((genre,index) => {
                                     return (
@@ -81,15 +86,23 @@ export default function Home() {
                         </MenuList>             
                     </Box>
                 </Grid>
-                <Grid item xs={8}>
-                    <Box sx={{ display: 'flex', alignItems: 'center'}}>
-                        <Box sx={{ py: 0.5, px: 2, border: "1px solid #E5E5E5", borderRadius: 2, display: "flex"}}>
+                <Grid item md={8} xs={12}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <Box 
+                            sx={{ 
+                                py: {md:0.5, xs: 1}, 
+                                px: {md: 2, xs: 1.5}, 
+                                // minWidth: {md: 200, xs: 140},                                
+                                border: "1px solid #E5E5E5", 
+                                borderRadius: 2, 
+                                display: "flex"
+                            }}>
                             <IconButton sx={{ mr: 0.5}} size="small">
                                 <SearchIcon />
                             </IconButton>
                             <InputBase sx={{ p: 0 }} placeholder="Search..."></InputBase>
                         </Box>
-                        <Box sx={{ display: 'flex', ml: 'auto'}}>
+                        <Box sx={{ display: 'flex', ml: 'auto', minWidth: {xs: 'auto'} }}>
                             <Typography variant="subtitle1" color="primary" sx={{ mr: 2}}>Low Price</Typography>
                             <Typography variant="subtitle1">High Price</Typography>
                         </Box>                        
@@ -97,7 +110,7 @@ export default function Home() {
                     <Grid container sx={{ mt: 2}} spacing={2}>                           
                             { Books.map((book, index) => {
                                 return (                                
-                                <Grid item sm={4} sx={{ mb: 1}} key={index}>
+                                <Grid item md={4} xs={4} sx={{ mb: 1}} key={index}>
                                     <Links to={'/Book/' + book.id}>
                                         <Paper elevation={0} sx={{
                                             backgroundImage: `url(${book.cover})`,
@@ -105,7 +118,7 @@ export default function Home() {
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
                                             width: '100%',
-                                            height: '370px',
+                                            height: {md :'370px', xs: '134px'},
                                         }}>
                                             {/* <img src={item} alt="something" width="100%" height="207" /> */}
                                         </Paper>
