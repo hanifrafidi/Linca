@@ -63,7 +63,7 @@ export default function Book() {
                 <Box>
                     <Typography variant="body1">{Book.description}</Typography>                    
                 </Box>
-                <Box sx={{ display: 'flex', justifyContent: {md: 'none', xs:'center'} }}>
+                <Box sx={{ display: 'flex', justifyContent: {md: 'flex-start', xs:'center'} }}>
                     <Button variant="contained" size="large" sx={{mt: 3, bgColor: 'success.light', color: 'white', mx: {md: 0, xs: 'auto'}}} onClick={() => addToCart(Book)}>Add To Cart</Button>
                 </Box>
             </Grid>            
