@@ -49,7 +49,8 @@ export default function Navbar(props) {
     return (
         <Box sx={{ flexGrow: 1, mt: {md: 4, xs: 1}, display: location.pathname === '/Auth' ? 'none' : '', alignItems: 'center' }}>          
           <Alerts alertType={alertType} />
-          <AppBar position="static"color="transparent" elevation={0}> 
+          <AppBar position="fixed" color="inherit" elevation={2}> 
+          <Container maxWidth="lg">
             <Toolbar disableGutters={true} sx={{ display: 'flex', alignItems: 'center'}}>                            
                 <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center'}} component={Links} to='/'>                    
                       <Box component="img" src={Logo}
@@ -65,7 +66,7 @@ export default function Navbar(props) {
                       height: { xs: 16, md: 16},
                     }}
                   >                    
-                    <Badge badgeContent={totalItem()} color="error">
+                    <Badge badgeContent={totalItem()} color="success">
                         <LocalMallIcon />
                     </Badge>                                        
                 </IconButton>                              
@@ -78,6 +79,7 @@ export default function Navbar(props) {
                   </Button>
               }              
             </Toolbar>
+            </Container>
           </AppBar>          
         </Box>
       );

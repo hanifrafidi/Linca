@@ -34,8 +34,8 @@ export default function Cart() {
 
     return (
         <div>            
-            <Typography variant="h5">Your Cart</Typography>
-            <Grid container sx={{ mt: 3 }}>
+            <Typography variant="h5" sx={{ mt: {md: 15, xs: 12}}}>Your Cart</Typography>
+            <Grid container sx={{ mt: 3, pb: 30 }}>
                 <Grid item md={8} xs={12}>
                         {
                             Cart.map((item,index) => {
@@ -44,15 +44,15 @@ export default function Cart() {
                                         <Grid item xs={4} component={Links} to={'/Book/' + item.id}>
                                             <Box component='img' sx={{                                                
                                                 width: '100%',
-                                                height: {md:'380px', xs:'16vh'},
+                                                height: {md:'380px', xs:'22vh'},
                                             }} 
                                                 src={item.cover}
                                             />
                                         </Grid>
-                                        <Grid item xs={8} sx={{pl: 3, pr: 4}}>
+                                        <Grid item xs={8} sx={{pl: {md: 3, xs: 2}, pr: {md: 4, xs: 0 } }}>
                                             <Typography variant="h6" sx={{mb: 1}}>{item.title}</Typography>
                                             <Typography variant="h6" color="text.secondary" sx={{ mt: 2}}>$ {item.price}</Typography>
-                                            <Box sx={{ display: 'flex', mt: 5, alignItems: 'center', justifyContent : 'flex-end'}}>
+                                            <Box sx={{ display: {md: 'flex', xs:'none'}, mt: 5, alignItems: 'center', justifyContent : 'flex-end'}}>
                                                 <IconButton sx={{ mr: 3}} onClick={() => decrement(item)} disabled={item.count === 1 ? true : false} color="primary">
                                                     <RemoveIcon />
                                                 </IconButton>
@@ -63,8 +63,21 @@ export default function Cart() {
                                                 <IconButton color='inherit' onClick={() => deleteFromCart(item)}>
                                                     <DeleteOutlineOutlinedIcon />
                                                 </IconButton>
-                                            </Box>
-                                            
+                                            </Box>                                            
+                                        </Grid>
+                                        <Grid item xs={12} sx={{ display: {md: 'none', xs:'block'}}}>
+                                            <Box sx={{ display: 'flex', mt: 2, alignItems: 'center', justifyContent : 'flex-end'}}>
+                                                <IconButton sx={{ mr: 2}} onClick={() => decrement(item)} disabled={item.count === 1 ? true : false} color="primary">
+                                                    <RemoveIcon />
+                                                </IconButton>
+                                                <Typography variant="h5" sx={{ mr: 2 }} color="inherit"> {item.count} </Typography>                                                
+                                                <IconButton color='primary' sx={{ mr: 2 }} onClick={() => addToCart(item)}>
+                                                    <AddCircleOutlineIcon />
+                                                </IconButton>
+                                                <IconButton color='inherit' onClick={() => deleteFromCart(item)}>
+                                                    <DeleteOutlineOutlinedIcon />
+                                                </IconButton>
+                                            </Box> 
                                         </Grid>
                                     </Grid>
                                 )
