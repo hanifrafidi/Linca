@@ -35,7 +35,10 @@ const UserProvider = (props) => {
 }
 
 const loginUser = (user,response,setUser,navigate) => {        
+<<<<<<< HEAD
     
+=======
+>>>>>>> 4d10e136beec47342d4eaab2ac0fe97f5c930b91
     if(response.error != null){
         console.log(user)
         return console.log('error : ', response)

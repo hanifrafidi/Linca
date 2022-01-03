@@ -43,7 +43,7 @@ export default function Auth() {
                         <Typography variant='h6' textAlign='center'>Login With</Typography>                        
                         <Typography variant='body2' textAlign='center' color="text.secondary" sx={{mt:1, mb: 3}}>You can use your favorite account</Typography>                            
                             <GoogleLogin
-                            clientId="343523054454-r5g42frbo21mvhebv3ieigd9ldrd6gfr.apps.googleusercontent.com"
+                            clientId="343523054454-7ke1t9gr0ot446ako2tu70d2fb357brv.apps.googleusercontent.com"
                             render={renderProps => (
                                 <Button variant='outlined' color="warning" size="small" fullWidth={true} sx={{mt: 1}} onClick={renderProps.onClick} disabled={renderProps.disabled}>
                                     <IconButton component='div' color="inherit" sx={{ mr: 1}}>
