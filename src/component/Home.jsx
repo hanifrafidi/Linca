@@ -94,7 +94,7 @@ export default function Home() {
                                 py: {md:0.5, xs: 0.5}, 
                                 px: {md: 2, xs: 1.5}, 
                                 // minWidth: {md: 200, xs: 140},
-                                maxWidth: {md: 0, xs: '40vw'},
+                                maxWidth: {md: 'auto', xs: '40vw'},
                                 border: "1px solid #E5E5E5", 
                                 borderRadius: 2, 
                                 display: "flex"
