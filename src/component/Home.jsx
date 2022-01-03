@@ -60,7 +60,7 @@ export default function Home() {
     
     return (
         <div>            
-            <Grid container sx={{ flexDirection: {xs: 'column', md: 'row'}, mt: {md:15, xs: 8} }}>
+            <Grid container sx={{ flexDirection: {xs: 'column', md: 'row'}, mt: {md:15, xs: 8}, mb: 15 }}>
                 <Grid item xs={12} md={4}>
                     <Typography variant="h6" sx={{ mt: {md: 10, xs: 4}}}>
                         Genre
@@ -114,16 +114,10 @@ export default function Home() {
                                 return (                                
                                 <Grid item md={4} xs={4} sx={{ mb: 1}} key={index}>
                                     <Links to={'/Book/' + book.id}>
-                                        <Paper elevation={0} sx={{
-                                            backgroundImage: `url(${book.cover})`,
-                                            backgroundSize : 'cover',
-                                            backgroundRepeat: 'no-repeat',
-                                            backgroundPosition: 'center',
+                                        <Box component='img' src={book.cover} alt='book.image' loading='lazy' elevation={0} sx={{
                                             width: '100%',
                                             height: {md :'370px', xs: '170px'},
-                                        }}>
-                                            {/* <img src={item} alt="something" width="100%" height="207" /> */}
-                                        </Paper>
+                                        }} />                                            
                                     </Links>
                                     <Box sx={{ mt: 2}}>
                                         {book.genres.map((genre,index) => (
