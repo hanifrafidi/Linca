@@ -24,14 +24,14 @@ import UserProvider from './state/UserContext'
 const Loader = () => {
   return (
     <Box sx={{ 
-      display: 'flex', 
-      minWidth: '100vh', 
-      minHeight: '50vh', 
+      display: 'flex',       
+      maxWidth: '100vh',
+      maxHeight: '50vh', 
       justifyContent:'center', 
       alignItems: 'center', 
       pt:'30%'
       }}>
-      <img src={LoaderGif} width='auto' height='auto' alt='loader'/>
+      <img src={LoaderGif} width='100' height='100' alt='loader'/>
     </Box>
     
   )
