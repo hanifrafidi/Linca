@@ -22,7 +22,7 @@ const Books = [
         title : 'Koala Kumal: [chapter 1]',
         author : 'Raditya Dika',
         price : 0.5,
-        genres : ['romance','teen','comedy'],
+        genres : ['comedy'],
         cover : 'https://books.google.com/books/publisher/content/images/frontcover/Uex1DQAAQBAJ?fife=w200-h300',
         description : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, rerum minima placeat dolorem illo vel soluta delectus earum enim molestiae quisquam rem, laborum sed veniam? Culpa ipsa itaque recusandae ipsum Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore esse aliquam sit at quasi quod, cupiditate, debitis libero, repellendus saepe explicabo dolor aut! Accusantium autem odio dolore mollitia, iure veniam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti adipisci quos non itaque, iure eum saepe accusamus, numquam harum quidem nam id eos tempore commodi fugit voluptatibus in! Debitis, commodi.'
     },

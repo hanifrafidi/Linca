@@ -47,20 +47,17 @@ export default function Navbar(props) {
     const location = useLocation();    
 
     return (
-        <Box sx={{ flexGrow: 1, mt: {md: 4, xs: 1}, display: location.pathname === '/Auth' ? 'none' : '' }}>          
+        <Box sx={{ flexGrow: 1, mt: {md: 4, xs: 1}, display: location.pathname === '/Auth' ? 'none' : '', alignItems: 'center' }}>          
           <Alerts alertType={alertType} />
           <AppBar position="static"color="transparent" elevation={0}> 
             <Toolbar disableGutters={true} sx={{ display: 'flex', alignItems: 'center'}}>                            
-                <Box sx={{ flexGrow: 1 }}>             
-                    <Links to='/'>
-                      <Box component="img" src={Logo} 
+                <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center'}} component={Links} to='/'>                    
+                      <Box component="img" src={Logo}
                         sx={{ 
-                            width:{ xs:69, md: 150},
+                            width:{ xs:90, md: 150},
                             height: { xs: 35, md: 60}
-                        }}/>
-                    </Links>
-                </Box>              
-              <nav>                
+                        }}/>                    
+                </Box>                                        
                   <IconButton aria-label="show 4 new mails"  component={Links} to='/Cart'
                     sx={{
                       mx: 2,
@@ -71,13 +68,12 @@ export default function Navbar(props) {
                     <Badge badgeContent={totalItem()} color="error">
                         <LocalMallIcon />
                     </Badge>                                        
-                </IconButton>                
-              </nav>
+                </IconButton>                              
               { 
                 user.userData != '' ?
                   <Button variant='text' color='primary' sx={{ my: 1}} component={Links} to="/Profile">Welcome, {user.userData.givenName}</Button>
                  :                 
-                 <Button variant="text" color="inherit" sx={{ my: 1}} component={Links} to='/Auth'>
+                 <Button variant="text" color="inherit" sx={{ my: 1, py: 0}} component={Links} to='/Auth'>
                     Login
                   </Button>
               }              

@@ -4,11 +4,15 @@ import App from './App'
 import CssBaseline from '@mui/material/CssBaseline';
 import Theme from './Theme'
 import { ThemeProvider } from '@mui/material/styles';
+import { responsiveFontSizes } from '@mui/material/styles';
+
 
 import { BrowserRouter } from 'react-router-dom'
 
+let theme = responsiveFontSizes(Theme);
+
 ReactDOM.render(
-  <ThemeProvider theme={Theme}>  
+  <ThemeProvider theme={theme}>  
     <CssBaseline />
     <BrowserRouter>
       <App />
