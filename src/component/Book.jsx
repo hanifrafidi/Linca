@@ -39,7 +39,7 @@ export default function Book() {
 
     return (
         <div>        
-        <Grid container sx={{ mt: {md:15, xs: 12}}}>                                    
+        <Grid container sx={{ mt: {md:15, xs: 12}, mb: 15}}>                                    
             <Grid item md={3} xs={12} sx={{ display: 'flex', justifyContent: {md: 'none', xs: 'center'}, mb: 5}}>
                 <Box component='img' 
                 sx={{
