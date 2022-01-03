@@ -14,6 +14,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar'
 
 import { useLocation, Link as Links} from "react-router-dom";
 
@@ -72,7 +73,7 @@ export default function Navbar(props) {
                 </IconButton>                              
               { 
                 user.userData != '' ?
-                  <Button variant='text' color='primary' sx={{ my: 1}} component={Links} to="/Profile">Welcome, {user.userData.givenName}</Button>
+                  <Button variant='text' color='primary' sx={{ my: 1}} component={Links} to="/Profile"><Avatar alt={user.userData.givenName} src={user.userData.imageUrl} /></Button>
                  :                 
                  <Button variant="text" color="inherit" sx={{ my: 1}} component={Links} to='/Auth'>
                     Login
