@@ -60,12 +60,12 @@ export default function Home() {
     
     return (
         <div>            
-            <Grid container sx={{ flexDirection: {xs: 'column', md: 'row'} }}>
+            <Grid container sx={{ flexDirection: {xs: 'column', md: 'row'}, mt: {md:15, xs: 8} }}>
                 <Grid item xs={12} md={4}>
                     <Typography variant="h6" sx={{ mt: {md: 10, xs: 4}}}>
                         Genre
                     </Typography>
-                    <Box sx={{mt: {md: 3, xs: 1}, pr: {md: 4, xs: 0}}}>
+                    <Box sx={{mt: {md: 3, xs: 1}, pr: {md: 4, xs: 0}, mb: {md: 0, xs: 5}}}>
                         <MenuList autoFocusItem={true} disabledgutter="true" 
                         sx={{ 
                             display: {md: 'block', xs: 'flex'}, 
