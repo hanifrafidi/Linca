@@ -73,7 +73,7 @@ export default function Navbar(props) {
                 user.userData != '' ?
                   <Button variant='text' color='primary' sx={{ my: 1}} component={Links} to="/Profile">Welcome, {user.userData.givenName}</Button>
                  :                 
-                 <Button variant="text" color="inherit" sx={{ my: 1, py: 0}} component={Links} to='/Auth'>
+                 <Button variant="text" color="inherit" sx={{ my: 1}} component={Links} to='/Auth'>
                     Login
                   </Button>
               }              

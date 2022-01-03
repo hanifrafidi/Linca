@@ -39,35 +39,19 @@ export default function Book() {
 
     return (
         <div>        
-        <Grid container sx={{ mt: 12}}>                                    
-            <Grid item sm={3}>
-                <Box>                    
-                    <Paper elevation={0} sx={{
-                                        backgroundImage: `url(${Book.cover})`,
-                                        backgroundSize : 'cover',
-                                        backgroundPosition: 'center',
-                                        width: 'auto',
-                                        height: '440px',
-                    }} />
-                </Box>
-                <Box sx={{ display: "flex", mt: 3}}>
-                    <Grid container disabledgutters="true">
-                        <Grid item xs={3}>
-                            <img src="https://images.unsplash.com/photo-1598960087461-556c5a1f864a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Ym9va3x8fHx8fDE2NDAwNjA2Mjc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" height="50" width="auto"></img>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <img src="https://images.unsplash.com/photo-1598960087461-556c5a1f864a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Ym9va3x8fHx8fDE2NDAwNjA2Mjc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" height="50" width="auto"></img>        
-                        </Grid>
-                        <Grid item xs={3}>
-                            <img src="https://images.unsplash.com/photo-1598960087461-556c5a1f864a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Ym9va3x8fHx8fDE2NDAwNjA2Mjc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" height="50" width="auto"></img>        
-                        </Grid>
-                        <Grid item xs={3}>
-                            <img src="https://images.unsplash.com/photo-1598960087461-556c5a1f864a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Ym9va3x8fHx8fDE2NDAwNjA2Mjc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" height="50" width="auto"></img>        
-                        </Grid>
-                    </Grid>                    
-                </Box>
+        <Grid container sx={{ mt: {md:12, xs: 5}}}>                                    
+            <Grid item md={3} xs={12} sx={{ display: 'flex', justifyContent: {md: 'none', xs: 'center'}, mb: 5}}>
+                <Box component='img' 
+                sx={{
+                    backgroundImage: `url(${Book.cover})`,                    
+                    width: 'auto',
+                    height: {md: '440px', xs: '30vh'}
+                }}
+                    src= {Book.cover} 
+                >                    
+                </Box>                
             </Grid>
-            <Grid item sm={9} sx={{pl: 5}} >
+            <Grid item md={9} xs={12} sx={{pl: {md: 5, xs: 0}}} >
                 <Typography variant="h5" sx={{ mb: 2}}>{Book.title}</Typography>
                 
                 <Box sx={{ display: 'flex', mb: 2}}>                    
@@ -79,9 +63,9 @@ export default function Book() {
                 <Box>
                     <Typography variant="body1">{Book.description}</Typography>                    
                 </Box>
-                
-                    <Button variant="contained" size="large" sx={{mt: 3, bgColor: 'success.light', color: 'white'}} onClick={() => addToCart(Book)}>Add To Cart</Button>
-                
+                <Box sx={{ display: 'flex', justifyContent: {md: 'none', xs:'center'} }}>
+                    <Button variant="contained" size="large" sx={{mt: 3, bgColor: 'success.light', color: 'white', mx: {md: 0, xs: 'auto'}}} onClick={() => addToCart(Book)}>Add To Cart</Button>
+                </Box>
             </Grid>            
             {console.log(Cart)}            
         </Grid>        

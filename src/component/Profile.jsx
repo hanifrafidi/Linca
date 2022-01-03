@@ -34,8 +34,8 @@ export default function Profile() {
     return (
         <div>                                    
             <Grid container  sx={{py: 10}}>
-                <Grid item xs={3} sx={{display: 'flex', justifyContent : 'space-between'}}>
-                    <Box sx={{ py: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '70vh'}}>
+                <Grid item md={3} xs={12} sx={{display: 'flex', justifyContent : {md: 'space-between', xs: 'center'} }}>
+                    <Box sx={{ py: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: {md: '70vh', xs: '35vh'}}}>
                         <img 
                             src={user.userData.imageUrl}
                             width="150"
@@ -44,12 +44,12 @@ export default function Profile() {
                             loading='lazy'
                             style={{ borderRadius: '50%', backgroundSize: 'contain' }}
                         />                    
-                        <Typography variant="h5" sx={{ mt: 3, flexGrow: 1}}>{user.userData.givenName}</Typography>                    
+                        <Typography variant="h5" sx={{ my: 3, flexGrow: {md:1, xs:0}}}>{user.userData.givenName}</Typography>                    
                         <Link onClick={logout} color="error" variant="h5" underline="hover">Logout</Link>
                     </Box>
-                    <Divider orientation='vertical'/>
+                    <Divider orientation='vertical' sx={{ display: {md: 'block', xs: 'none'}}}/>
                 </Grid>
-                <Grid item xs={9} sx={{ pl: 5}}>
+                <Grid item md={9} xs={12} sx={{ pl: {md: 5, xs: 0}}}>
                     <Box sx={{ mb: 5, minHeight: 250}}>
                         <Typography variant="h6">Your Liked Books</Typography>                        
                     </Box>

@@ -36,20 +36,18 @@ export default function Cart() {
         <div>            
             <Typography variant="h5">Your Cart</Typography>
             <Grid container sx={{ mt: 3 }}>
-                <Grid item xs={8}>                    
+                <Grid item md={8} xs={12}>
                         {
                             Cart.map((item,index) => {
                                 return(
                                     <Grid container key={index} sx={{ mb: 4}} >
                                         <Grid item xs={4} component={Links} to={'/Book/' + item.id}>
-                                            <Paper elevation={0} sx={{
-                                                backgroundImage: `url(${item.cover})`,
-                                                backgroundSize : 'cover',
-                                                backgroundRepeat : 'no-repeat',
-                                                backgroundPosition: 'center',
+                                            <Box component='img' sx={{                                                
                                                 width: '100%',
-                                                height: '380px',
-                                            }} />
+                                                height: {md:'380px', xs:'16vh'},
+                                            }} 
+                                                src={item.cover}
+                                            />
                                         </Grid>
                                         <Grid item xs={8} sx={{pl: 3, pr: 4}}>
                                             <Typography variant="h6" sx={{mb: 1}}>{item.title}</Typography>
@@ -73,11 +71,19 @@ export default function Cart() {
                             })
                         }                    
                 </Grid>                
-                <Grid item xs={4}>
-                    <Paper elevation={0} variant="outlined" sx={{ ml: 1, px: 3, py: 3, position: 'fixed'}}>
+                <Grid item md={4} xs={12}>
+                    <Paper elevation={0} variant="outlined" 
+                        sx={{ 
+                            ml: {md:1, xs:0}, 
+                            px: {md:3, xs: 2}, 
+                            py: 3, 
+                            position: 'fixed', 
+                            bottom: {md: 'auto', xs: 30},
+                            minWidth: {md: 0, xs: '90%'}
+                        }}>
                         { Cart.map((item,index) => {
                             return(
-                                <Box sx={{ display: 'flex', mb: 2}} key={index}>
+                                <Box sx={{ display: {md:'flex', xs: 'none'}, mb: 2}} key={index}>
                                     <Typography variant="subtitle1" color="text.secondary" 
                                     sx={{ 
                                         flexGrow: 1, 
@@ -99,7 +105,7 @@ export default function Cart() {
                             )
                         })}
 
-                        <Divider sx={{ mt: 5, mb: 2}} />
+                        <Divider sx={{ mt: 5, mb: 2,  display: {md:'block', xs: 'none'}}} />
                         <Box sx={{ display: 'flex', mb: 3}}>
                             <Typography variant="h5" sx={{ flexGrow: 1}}>Total :</Typography>
                             <Typography variant="h5" color="primary">$ {totalPrice()}</Typography>

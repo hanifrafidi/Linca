@@ -27,8 +27,8 @@ export default function Auth() {
         
     return (
         <div>            
-            <Grid container justifyContent='center'>
-                <Grid item xs={4}>
+            <Grid container justifyContent='center' >
+                <Grid item md={4} xs={12}>
                     <Box sx={{ display: 'flex', mt: 15, justifyContent: 'center' }} component={Links} to='/'>
                         <img src={Logo} width="250" height="100" alt="logo" />
                     </Box>                    
