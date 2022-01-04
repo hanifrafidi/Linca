@@ -7,16 +7,16 @@ import { ThemeProvider } from '@mui/material/styles';
 import { responsiveFontSizes } from '@mui/material/styles';
 
 
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 
 let theme = responsiveFontSizes(Theme);
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>  
     <CssBaseline />
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>  
+    </HashRouter>  
   </ThemeProvider>,
   document.getElementById('root')
 )

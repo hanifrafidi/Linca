@@ -119,12 +119,7 @@ export default function Home() {
                                             height: {md :'370px', xs: '170px'},
                                         }} />                                            
                                     </Links>
-                                    <Box sx={{ mt: 2}}>
-                                        {book.genres.map((genre,index) => (
-                                            <Typography key={index} variant="caption2" color="text.secondary" sx={{mr: 1}}>{genre}</Typography>
-                                        ))}                                        
-                                        {/* <Typography variant="caption" color="text.secondary" sx={{mr: 1}}>Entertainment</Typography> */}
-                                    </Box>
+                                    
                                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                                         <Typography variant="h6" 
                                         sx={{
@@ -132,7 +127,7 @@ export default function Home() {
                                             display: '-webkit-box', 
                                             width: '100%', 
                                             maxHeight: '100px', 
-                                            minHeight: {md:'70px', xs: '50px'}, 
+                                            minHeight: {md:'auto', xs: '50px'}, 
                                             textOverflow: 'ellipsis', 
                                             overflow: 'hidden', 
                                             wordWrap: 'break-word', 
