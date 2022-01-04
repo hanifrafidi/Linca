@@ -13,6 +13,7 @@ import {
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import LocalMallIcon from '@mui/icons-material/LocalMall';
+import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar'
 
@@ -23,16 +24,6 @@ import Logo from '../assets/Logo.png'
 import {UserContext} from '../state/UserContext'
 import {CartContext} from '../state/CartContext'
 import Alerts from './Alerts'
-
-// const useStyles = makeStyles((theme) =>({
-//   logo: {
-//     [theme.breakpoints.up('sm')]: {      
-//       width: '69px',
-//       height: '35px',
-//     },
-//   },
-// }));
-
 
 export default function Navbar(props) {
     const {Cart, alertType} = useContext(CartContext)
@@ -50,17 +41,17 @@ export default function Navbar(props) {
     return (
         <Box sx={{ flexGrow: 1, mt: {md: 4, xs: 1}, display: location.pathname === '/Auth' ? 'none' : '', alignItems: 'center' }}>          
           <Alerts alertType={alertType} />
-          <AppBar position="fixed" color="inherit" elevation={2}> 
+          <AppBar position="fixed" color="inherit" elevation={0} sx={{borderBottom: 'solid 1px #E5E5E5'}}> 
           <Container maxWidth="lg">
             <Toolbar disableGutters={true} sx={{ display: 'flex', alignItems: 'center'}}>                            
                 <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center'}} component={Links} to='/'>                    
                       <Box component="img" src={Logo}
                         sx={{ 
-                            width:{ xs:90, md: 150},
-                            height: { xs: 35, md: 60}
+                            width:{ xs:90, md: 125},
+                            height: { xs: 35, md: 50}
                         }}/>                    
                 </Box>                                        
-                  <IconButton aria-label="show 4 new mails"  component={Links} to='/Cart'
+                  <IconButton aria-label="show 4 new mails"  component={Links} to='/Cart' size="large"
                     sx={{
                       mx: 2,
                       width: { xs: 16, md: 16},
@@ -68,12 +59,18 @@ export default function Navbar(props) {
                     }}
                   >                    
                     <Badge badgeContent={totalItem()} color="success">
-                        <LocalMallIcon />
+                        { totalItem() < 1 ? 
+                          <LocalMallOutlinedIcon />
+                          :
+                          <LocalMallIcon />
+                        }
                     </Badge>                                        
                 </IconButton>                              
               { 
                 user.userData != '' ?
-                  <Button variant='text' color='primary' sx={{ my: 1}} component={Links} to="/Profile"><Avatar alt={user.userData.givenName} src={user.userData.imageUrl} /></Button>
+                  <Button variant='text' color='primary' sx={{ my: 1}} component={Links} to="/Profile">
+                    <Avatar alt={user.userData.givenName} src={user.userData.imageUrl} />
+                  </Button>
                  :                 
                  <Button variant="text" color="inherit" sx={{ my: 1}} component={Links} to='/Auth'>
                     Login
