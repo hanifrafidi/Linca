@@ -127,7 +127,7 @@ export default function Home() {
                                             display: '-webkit-box', 
                                             width: '100%', 
                                             maxHeight: '100px', 
-                                            minHeight: {md:'auto', xs: '50px'}, 
+                                            minHeight: 'auto', 
                                             textOverflow: 'ellipsis', 
                                             overflow: 'hidden', 
                                             wordWrap: 'break-word', 
