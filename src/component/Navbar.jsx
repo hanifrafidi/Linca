@@ -44,38 +44,40 @@ export default function Navbar(props) {
           <AppBar position="fixed" color="inherit" elevation={0} sx={{borderBottom: 'solid 1px #E5E5E5'}}> 
           <Container maxWidth="lg">
             <Toolbar disableGutters={true} sx={{ display: 'flex', alignItems: 'center'}}>                            
-                <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center'}} component={Links} to='/'>                    
-                      <Box component="img" src={Logo}
+                <Box sx={{ display: 'flex', alignItems: 'center'}} component={Links} to='/'>                    
+                      <Box component="img" src={Logo} alt="Logo"
                         sx={{ 
                             width:{ xs:90, md: 125},
                             height: { xs: 35, md: 50}
                         }}/>                    
-                </Box>                                        
-                  <IconButton aria-label="show 4 new mails"  component={Links} to='/Cart' size="large"
-                    sx={{
-                      mx: 2,
-                      width: { xs: 16, md: 16},
-                      height: { xs: 16, md: 16},
-                    }}
-                  >                    
-                    <Badge badgeContent={totalItem()} color="success">
-                        { totalItem() < 1 ? 
-                          <LocalMallOutlinedIcon />
-                          :
-                          <LocalMallIcon />
-                        }
-                    </Badge>                                        
-                </IconButton>                              
-              { 
-                user.userData != '' ?
-                  <Button variant='text' color='primary' sx={{ my: 1}} component={Links} to="/Profile">
-                    <Avatar alt={user.userData.givenName} src={user.userData.imageUrl} />
-                  </Button>
-                 :                 
-                 <Button variant="text" color="inherit" sx={{ my: 1}} component={Links} to='/Auth'>
-                    Login
-                  </Button>
-              }              
+                </Box>             
+                <Box sx={{ ml: 'auto'}}>
+                  <IconButton aria-label="show 4 new mails"  component={Links} to={user.userData != '' ? '/Cart' : '/Auth'} size="medium"
+                      sx={{
+                        mx: 2,
+                        width: { xs: 16, md: 16},
+                        height: { xs: 16, md: 16},
+                      }}
+                    >                    
+                      <Badge badgeContent={totalItem()} color="success">
+                          { totalItem() < 1 ? 
+                            <LocalMallOutlinedIcon />
+                            :
+                            <LocalMallIcon />
+                          }
+                      </Badge>                                        
+                  </IconButton>                              
+                  { 
+                    user.userData != '' ?
+                      <Button variant='text' color='primary' sx={{ my: 1}} component={Links} to="/Profile">
+                        <Avatar alt={user.userData.givenName} src={user.userData.imageUrl} />
+                      </Button>
+                    :                 
+                    <Button variant="text" color="inherit" sx={{ my: 1}} component={Links} to='/Auth'>
+                        Login
+                      </Button>
+                  }       
+                </Box>
             </Toolbar>
             </Container>
           </AppBar>          

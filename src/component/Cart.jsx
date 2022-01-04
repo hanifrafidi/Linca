@@ -42,7 +42,7 @@ export default function Cart() {
                                 return(
                                     <Grid container key={index} sx={{ mb: 4}} >
                                         <Grid item xs={4} component={Links} to={'/Book/' + item.id}>
-                                            <Box component='img' sx={{                                                
+                                            <Paper elevation={3} component='img' sx={{                                                
                                                 width: '100%',
                                                 height: {md:'380px', xs:'22vh'},
                                             }} 

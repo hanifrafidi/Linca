@@ -60,7 +60,7 @@ export default function Home() {
     
     return (
         <div>            
-            <Grid container sx={{ flexDirection: {xs: 'column', md: 'row'}, mt: {md:15, xs: 8}, mb: 15 }}>
+            <Grid container sx={{ flexDirection: {xs: 'column', md: 'row'}, mt: {md:15, xs: 8}, mb: 8 }}>
                 <Grid item xs={12} md={4}>
                     <Typography variant="h6" sx={{ mt: {md: 10, xs: 4}}}>
                         Genre
@@ -109,14 +109,14 @@ export default function Home() {
                             <Typography variant="subtitle1">High Price</Typography>
                         </Box>                        
                     </Box>
-                    <Grid container sx={{ mt: 2}} spacing={2}>                           
+                    <Grid container sx={{ mt: 2}} spacing={2}>
                             { Books.map((book, index) => {
                                 return (                                
-                                <Grid item md={4} xs={4} sx={{ mb: 1}} key={index}>
+                                <Grid item md={4} xs={6} sx={{ mb: 1}} key={index}>
                                     <Links to={'/Book/' + book.id}>
-                                        <Box component='img' src={book.cover} alt='book.image' loading='lazy' elevation={0} sx={{
+                                        <Paper elevation={3} component='img' src={book.cover} alt='book.image' loading='lazy' sx={{
                                             width: '100%',
-                                            height: {md :'370px', xs: '170px'},
+                                            height: {md :'370px', xs: '250px'},
                                         }} />                                            
                                     </Links>
                                     
