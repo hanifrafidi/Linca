@@ -15,45 +15,38 @@ import {
 } from '@mui/material'
 
 import Books from '../data/data'
-import Alerts from './Alerts'
 
 import {CartContext} from '../state/CartContext'
 
 export default function Book() {
-    const {addToCart, alertType, Cart} = useContext(CartContext)
+    const {addToCart, Cart} = useContext(CartContext)
     
     const { bookId } = useParams();
     const Book = Books.find(
         Books => Books.id === parseInt(bookId)
-    );    
-
-    const [alertOpen, setAlert] = useState(false)
-    const moveToCart = (Book) => {
-        addToCart(Book);
-        
-        setAlert(true)
-        setTimeout(() => {
-            setAlert(false)
-        }, 1500);
-    }
+    );        
 
     return (
         <div>        
         <Grid container sx={{ mt: {md:15, xs: 12}, mb: 15}}>                                    
-            <Grid item md={3} xs={12} sx={{ display: 'flex', justifyContent: {md: 'none', xs: 'center'}, mb: 5}}>
-                <Box component='img' 
+            <Grid item md={3} xs={12} 
+                sx={{ 
+                    display: 'flex', 
+                    justifyContent: {md: 'none', xs: 'center'}, 
+                    mb: 5
+                }}>
+                <Paper component='img' elevation={3}
                 sx={{
                     backgroundImage: `url(${Book.cover})`,                    
-                    width: 'auto',
+                    width: {md: '100%', xs: 'auto'},
                     height: {md: '440px', xs: '40vh'}
                 }}
                     src= {Book.cover} 
                 >                    
-                </Box>                
+                </Paper>                
             </Grid>
             <Grid item md={9} xs={12} sx={{pl: {md: 5, xs: 0}}} >
-                <Typography variant="h5" sx={{ mb: 2}}>{Book.title}</Typography>
-                
+                <Typography variant="h6" sx={{ mb: 2}}>{Book.title}</Typography>                
                 <Box sx={{ display: 'flex', mb: 2}}>                    
                     <Typography variant="subtitle1" sx={{ mb: 2, mr: 2}}>Genre :</Typography>
                     { Book.genres.map((genre,index) => (
