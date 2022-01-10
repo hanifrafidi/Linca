@@ -121,7 +121,7 @@ export default function Home() {
                                     </Links>
                                     
                                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                        <Typography variant="h6" 
+                                        <Typography variant="subtitle1" 
                                         sx={{
                                             mt: 0.5, 
                                             display: '-webkit-box', 
@@ -134,7 +134,7 @@ export default function Home() {
                                             WebkitLineClamp : '2', 
                                             WebkitBoxOrient: 'vertical' 
                                         }}>{book.title}</Typography>
-                                        <Typography variant ="h6" color="primary" sx={{ mt: 1}}>$ {book.price}</Typography>
+                                        <Typography variant ="subtitle1" color="primary" sx={{ mt: 1}}>$ {book.price}</Typography>
                                     </Box>
                                 </Grid>
                                 )                                
