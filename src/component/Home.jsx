@@ -121,7 +121,7 @@ export default function Home() {
                                     </Links>
                                     
                                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                        <Typography variant="subtitle1" 
+                                        <Typography variant="subtitle2" 
                                         sx={{
                                             mt: 0.5, 
                                             display: '-webkit-box', 
